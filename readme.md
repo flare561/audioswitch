@@ -6,4 +6,4 @@ I developed this for my Xonar DG sound card, it probably doesn't work with other
 
 It's likely that any sound card that uses Oxygen HD Audio driver in linux will be able to use this if you modify the location of the headphone jack status and the location of the oxygen file in switcher.py. 
 
-Enable with `sudo systemctl enable audioswitch.service`
+The service will start automatically, to persist after reboot run `sudo systemctl enable audioswitch.service` to stop the service run `sudo systemctl stop audioswitch.service`
