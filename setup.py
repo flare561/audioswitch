@@ -3,12 +3,6 @@ from setuptools.command.install import install
 import os
 
 
-class PostInstallCommand(install):
-    def run(self):
-        install.run(self)
-        os.system("systemctl restart audioswitch.service")
-
-
 setup(name="audioswitch",
       version='0.1',
       description='Swap audio on headphone events',
@@ -24,5 +18,4 @@ setup(name="audioswitch",
           'console_scripts': ['audioswitch=audioswitch:main'],
       },
       data_files=[('/etc/systemd/system/', ['audioswitch.service'])],
-      cmdclass={'install': PostInstallCommand}
       )
