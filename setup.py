@@ -6,7 +6,6 @@ import os
 class PostInstallCommand(install):
     def run(self):
         install.run(self)
-        os.system("systemctl enable audioswitch.service")
         os.system("systemctl restart audioswitch.service")
 
 
