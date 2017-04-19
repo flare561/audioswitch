@@ -1,0 +1,9 @@
+[Unit]
+Description=Switches audio on device unplugged
+
+[Service]
+ExecStart=/usr/local/bin/audioswitch
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
