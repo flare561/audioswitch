@@ -1,6 +1,6 @@
-#AudioSwitch
+# AudioSwitch
 
-#Switch to your headphone jack when you plug in your headphones
+## Switch to your headphone jack when you plug in your headphones
 
 I developed this for my Xonar DG sound card, it probably doesn't work with other sound cards out of the box, and may not work with other Xonar DG's.
 
