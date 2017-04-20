@@ -1,15 +1,15 @@
 #! /usr/bin/env python3.6
 from time import sleep
-from os import system
+from os import spawnlp, P_WAIT
 
-HEADPHONES = "'Stereo Headphones FP'"
-SPEAKERS = "'Stereo Headphones'"
+HEADPHONES = "Stereo Headphones FP"
+SPEAKERS = "Stereo Headphones"
 OXYGEN_FILE = "/proc/asound/DG/oxygen"
 JACK_STATUS_LOCATION = 551
-OUTPUT_DEVICE = "'Analog Output'"
+OUTPUT_DEVICE = "Analog Output"
     
 def set_active(output):
-    system(f"amixer set {OUTPUT_DEVICE} {output}")
+    spawnlp(P_WAIT, 'amixer', 'amixer', 'set', OUTPUT_DEVICE, output)
 
 def headphones_state(oxygen_file):
     # Python seems to cache the file if we seek directly to
