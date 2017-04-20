@@ -17,15 +17,16 @@ def headphones_state(oxygen_file):
     oxygen_file.seek(0)
 
     # The oxygen file contains a list of hex codes representing the
-    # state of the sound card. The single hex digit located at position
-    # 551 contains the state of the headphone jack.
+    # state of the sound card. The single hex digit (half byte) located
+    # at position 551 contains the state of the headphone jack.
     oxygen_file.seek(JACK_STATUS_LOCATION)
     byte = int(oxygen_file.read(1), 16)
 
-    # The first bit (from left to right) represents whether the headphone
-    # jack is active (0 for active, 1 for inactive), while the last bit
-    # represents whether something is plugged in to the headphone jack.
+    # The least significant bit (rightmost bit) represents whether 
+    # or not headphones are plugged in to the jack. 
     # (0 for plugged in, 1 for unplugged)
+    # The most significant bit (leftmost bit) represents whether
+    # the headphone jack is active. (0 for active, 1 for inactive)
     return (not (byte & 0b1), not (byte >> 3 & 0b1))
 
 def main():
